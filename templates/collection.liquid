@@ -1,0 +1,243 @@
+<div class="collection-header">
+  <div class="container">
+    <div class="collection-banner">
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <p class="collection-description">{{ collection.description }}</p>
+      {% endif %}
+      <div class="collection-stats">
+        <span class="product-count">{{ collection.products_count }} {% if collection.products_count == 1 %}product{% else %}products{% endif %}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="collection-content">
+  <div class="container">
+    <div class="collection-toolbar">
+      <div class="collection-filters">
+        <button class="filter-toggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+          </svg>
+          Filters
+        </button>
+        
+        <div class="active-filters">
+          <!-- Active filters will be displayed here -->
+        </div>
+      </div>
+      
+      <div class="collection-sort">
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select" name="sort_by">
+          <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best Selling</option>
+          <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A-Z</option>
+          <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Z-A</option>
+          <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+          <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+          <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="collection-layout">
+      <aside class="collection-sidebar">
+        <div class="filter-section">
+          <h3>Categories</h3>
+          <ul class="filter-list">
+            <li><a href="/collections/mens-shoes" {% if collection.handle == 'mens-shoes' %}class="active"{% endif %}>Men's Shoes</a></li>
+            <li><a href="/collections/womens-shoes" {% if collection.handle == 'womens-shoes' %}class="active"{% endif %}>Women's Shoes</a></li>
+            <li><a href="/collections/mens-sneakers" {% if collection.handle == 'mens-sneakers' %}class="active"{% endif %}>Men's Sneakers</a></li>
+            <li><a href="/collections/womens-sneakers" {% if collection.handle == 'womens-sneakers' %}class="active"{% endif %}>Women's Sneakers</a></li>
+            <li><a href="/collections/mens-boots" {% if collection.handle == 'mens-boots' %}class="active"{% endif %}>Men's Boots</a></li>
+            <li><a href="/collections/womens-boots" {% if collection.handle == 'womens-boots' %}class="active"{% endif %}>Women's Boots</a></li>
+            <li><a href="/collections/womens-heels" {% if collection.handle == 'womens-heels' %}class="active"{% endif %}>Women's Heels</a></li>
+            <li><a href="/collections/womens-flats" {% if collection.handle == 'womens-flats' %}class="active"{% endif %}>Women's Flats</a></li>
+          </ul>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Price Range</h3>
+          <div class="price-filter">
+            <div class="price-inputs">
+              <input type="number" placeholder="Min" min="0" class="price-min">
+              <span>to</span>
+              <input type="number" placeholder="Max" min="0" class="price-max">
+            </div>
+            <button class="btn btn-outline price-filter-apply">Apply</button>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Brand</h3>
+          <ul class="filter-list brand-filter">
+            <li><label><input type="checkbox" value="nike"> Nike</label></li>
+            <li><label><input type="checkbox" value="adidas"> Adidas</label></li>
+            <li><label><input type="checkbox" value="converse"> Converse</label></li>
+            <li><label><input type="checkbox" value="timberland"> Timberland</label></li>
+            <li><label><input type="checkbox" value="jimmy-choo"> Jimmy Choo</label></li>
+            <li><label><input type="checkbox" value="tory-burch"> Tory Burch</label></li>
+            <li><label><input type="checkbox" value="cole-haan"> Cole Haan</label></li>
+            <li><label><input type="checkbox" value="steve-madden"> Steve Madden</label></li>
+          </ul>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Size</h3>
+          <div class="size-filter">
+            <div class="size-grid">
+              <button class="size-option" data-size="6">6</button>
+              <button class="size-option" data-size="6.5">6.5</button>
+              <button class="size-option" data-size="7">7</button>
+              <button class="size-option" data-size="7.5">7.5</button>
+              <button class="size-option" data-size="8">8</button>
+              <button class="size-option" data-size="8.5">8.5</button>
+              <button class="size-option" data-size="9">9</button>
+              <button class="size-option" data-size="9.5">9.5</button>
+              <button class="size-option" data-size="10">10</button>
+              <button class="size-option" data-size="10.5">10.5</button>
+              <button class="size-option" data-size="11">11</button>
+              <button class="size-option" data-size="11.5">11.5</button>
+              <button class="size-option" data-size="12">12</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h3>Color</h3>
+          <div class="color-filter">
+            <div class="color-options">
+              <button class="color-option" data-color="black" style="background-color: #000"></button>
+              <button class="color-option" data-color="white" style="background-color: #fff; border: 1px solid #ddd"></button>
+              <button class="color-option" data-color="brown" style="background-color: #8B4513"></button>
+              <button class="color-option" data-color="red" style="background-color: #dc3545"></button>
+              <button class="color-option" data-color="blue" style="background-color: #007bff"></button>
+              <button class="color-option" data-color="green" style="background-color: #28a745"></button>
+              <button class="color-option" data-color="gray" style="background-color: #6c757d"></button>
+              <button class="color-option" data-color="navy" style="background-color: #001f3f"></button>
+            </div>
+          </div>
+        </div>
+      </aside>
+      
+      <main class="collection-main">
+        {% if collection.products.size > 0 %}
+          <div class="products-grid">
+            {% comment %} Since this is a demo with dummy data, I'll create sample products {% endcomment %}
+            
+            {% assign dummy_products = "Nike Air Max Pro,Adidas Ultra Boost,Classic Oxford Heel,Timberland Work Boot,Canvas High Top,Leather Loafer,Platform Sandal,Running Sneaker,Ballet Flat,Hiking Boot,Dress Pump,Casual Slip-On,Athletic Trainer,Ankle Boot,Mary Jane Flat,Chelsea Boot" | split: "," %}
+            {% assign brands = "Nike,Adidas,Jimmy Choo,Timberland,Converse,Cole Haan,Steve Madden,Nike,Tory Burch,Timberland,Jimmy Choo,Cole Haan,Adidas,Timberland,Tory Burch,Cole Haan" | split: "," %}
+            {% assign prices = "129.99,159.99,249.99,189.99,65.99,179.99,89.99,119.99,149.99,199.99,299.99,139.99,99.99,169.99,129.99,159.99" | split: "," %}
+            {% assign original_prices = "149.99,179.99,299.99,219.99,79.99,199.99,109.99,139.99,169.99,229.99,349.99,159.99,119.99,189.99,149.99,179.99" | split: "," %}
+            {% assign ratings = "5,4,4,5,5,4,4,5,4,5,4,4,5,4,4,5" | split: "," %}
+            {% assign review_counts = "124,89,67,203,187,78,95,156,142,178,89,92,134,145,98,87" | split: "," %}
+            
+            {% for i in (0..15) %}
+              {% assign product_name = dummy_products[i] %}
+              {% assign brand = brands[i] %}
+              {% assign price = prices[i] %}
+              {% assign original_price = original_prices[i] %}
+              {% assign rating = ratings[i] %}
+              {% assign review_count = review_counts[i] %}
+              {% assign product_id = product_name | handleize %}
+              
+              <div class="product-card" data-product-id="{{ product_id }}">
+                <div class="product-image">
+                  <div class="placeholder-image product-{{ i | plus: 1 | modulo: 8 | plus: 1 }}"></div>
+                  <div class="product-badges">
+                    {% if i == 1 or i == 6 or i == 12 %}
+                      <span class="badge sale">-{{ original_price | minus: price | divided_by: original_price | times: 100 | floor }}%</span>
+                    {% elsif i == 0 or i == 9 or i == 15 %}
+                      <span class="badge new">New</span>
+                    {% elsif i == 2 or i == 10 %}
+                      <span class="badge bestseller">Best Seller</span>
+                    {% elsif i == 3 %}
+                      <span class="badge limited">Limited Edition</span>
+                    {% endif %}
+                  </div>
+                  <div class="product-actions">
+                    <button class="quick-view" data-product="{{ product_id }}">Quick View</button>
+                    <button class="add-to-cart" data-product="{{ product_id }}">Add to Cart</button>
+                  </div>
+                  <button class="wishlist-toggle" data-product="{{ product_id }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="product-info">
+                  <h3><a href="/products/{{ product_id }}">{{ product_name }}</a></h3>
+                  <p class="product-brand">{{ brand }}</p>
+                  <div class="product-rating">
+                    <span class="stars">
+                      {% for j in (1..5) %}
+                        {% if j <= rating %}★{% else %}☆{% endif %}
+                      {% endfor %}
+                    </span>
+                    <span class="rating-count">({{ review_count }})</span>
+                  </div>
+                  <div class="product-price">
+                    <span class="price">${{ price }}</span>
+                    {% if i == 1 or i == 6 or i == 12 %}
+                      <span class="original-price">${{ original_price }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          
+          {% comment %} Pagination {% endcomment %}
+          <div class="pagination-wrapper">
+            <nav class="pagination">
+              <button class="pagination-btn prev" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+                Previous
+              </button>
+              
+              <div class="pagination-numbers">
+                <button class="pagination-number active">1</button>
+                <button class="pagination-number">2</button>
+                <button class="pagination-number">3</button>
+                <span class="pagination-dots">...</span>
+                <button class="pagination-number">8</button>
+              </div>
+              
+              <button class="pagination-btn next">
+                Next
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+              </button>
+            </nav>
+          </div>
+          
+        {% else %}
+          <div class="empty-collection">
+            <div class="empty-state">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <h3>No products found</h3>
+              <p>Sorry, there are no products in this collection.</p>
+              <a href="/collections/all" class="btn btn-primary">View All Products</a>
+            </div>
+          </div>
+        {% endif %}
+      </main>
+    </div>
+  </div>
+</div>
+
+<section class="recently-viewed">
+  <div class="container">
+    <h2 class="section-title">Recently Viewed</h2>
+    <div class="recently-viewed-products">
+      <!-- Recently viewed products will be populated by JavaScript -->
+    </div>
+  </div>
+</section>

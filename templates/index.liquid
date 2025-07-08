@@ -1,0 +1,328 @@
+<div class="hero-section">
+  <div class="hero-slider">
+    <div class="hero-slide active">
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-text">
+            <h1>Step Into Style</h1>
+            <p>Discover premium footwear for every occasion. From casual sneakers to elegant dress shoes.</p>
+            <div class="hero-buttons">
+              <a href="/collections/mens-shoes" class="btn btn-primary">Shop Men's</a>
+              <a href="/collections/womens-shoes" class="btn btn-secondary">Shop Women's</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-bg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="featured-collections">
+  <div class="container">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-image">
+          <div class="placeholder-image mens-sneakers"></div>
+        </div>
+        <div class="collection-content">
+          <h3>Men's Sneakers</h3>
+          <p>Comfortable and stylish sneakers for everyday wear</p>
+          <a href="/collections/mens-sneakers" class="btn btn-outline">Shop Now</a>
+        </div>
+      </div>
+      
+      <div class="collection-card">
+        <div class="collection-image">
+          <div class="placeholder-image womens-heels"></div>
+        </div>
+        <div class="collection-content">
+          <h3>Women's Heels</h3>
+          <p>Elegant heels for special occasions and professional wear</p>
+          <a href="/collections/womens-heels" class="btn btn-outline">Shop Now</a>
+        </div>
+      </div>
+      
+      <div class="collection-card">
+        <div class="collection-image">
+          <div class="placeholder-image mens-boots"></div>
+        </div>
+        <div class="collection-content">
+          <h3>Men's Boots</h3>
+          <p>Durable boots for all weather and work conditions</p>
+          <a href="/collections/mens-boots" class="btn btn-outline">Shop Now</a>
+        </div>
+      </div>
+      
+      <div class="collection-card">
+        <div class="collection-image">
+          <div class="placeholder-image womens-flats"></div>
+        </div>
+        <div class="collection-content">
+          <h3>Women's Flats</h3>
+          <p>Comfortable flats perfect for everyday activities</p>
+          <a href="/collections/womens-flats" class="btn btn-outline">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-products">
+  <div class="container">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid">
+      {% assign featured_products = collections['featured'].products | default: collections.all.products %}
+      
+      <!-- Dummy Products Data -->
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-1"></div>
+          <div class="product-badges">
+            <span class="badge new">New</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="air-max-pro">Quick View</button>
+            <button class="add-to-cart" data-product="air-max-pro">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/air-max-pro">Air Max Pro</a></h3>
+          <p class="product-brand">Nike</p>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(124)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$129.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-2"></div>
+          <div class="product-badges">
+            <span class="badge sale">-20%</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="classic-heel">Quick View</button>
+            <button class="add-to-cart" data-product="classic-heel">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/classic-heel">Classic Heel</a></h3>
+          <p class="product-brand">Jimmy Choo</p>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">(89)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$199.99</span>
+            <span class="original-price">$249.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-3"></div>
+          <div class="product-badges">
+            <span class="badge bestseller">Best Seller</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="urban-runner">Quick View</button>
+            <button class="add-to-cart" data-product="urban-runner">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/urban-runner">Urban Runner</a></h3>
+          <p class="product-brand">Adidas</p>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(256)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$89.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-4"></div>
+          <div class="product-badges">
+            <span class="badge limited">Limited Edition</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="leather-oxford">Quick View</button>
+            <button class="add-to-cart" data-product="leather-oxford">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/leather-oxford">Leather Oxford</a></h3>
+          <p class="product-brand">Cole Haan</p>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(78)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$179.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-5"></div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="ballet-flat">Quick View</button>
+            <button class="add-to-cart" data-product="ballet-flat">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/ballet-flat">Ballet Flat</a></h3>
+          <p class="product-brand">Tory Burch</p>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">(142)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$149.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-6"></div>
+          <div class="product-badges">
+            <span class="badge new">New</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="hiking-boot">Quick View</button>
+            <button class="add-to-cart" data-product="hiking-boot">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/hiking-boot">Hiking Boot</a></h3>
+          <p class="product-brand">Timberland</p>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(203)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$169.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-7"></div>
+          <div class="product-badges">
+            <span class="badge sale">-15%</span>
+          </div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="platform-sandal">Quick View</button>
+            <button class="add-to-cart" data-product="platform-sandal">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/platform-sandal">Platform Sandal</a></h3>
+          <p class="product-brand">Steve Madden</p>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">(95)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$84.99</span>
+            <span class="original-price">$99.99</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <div class="placeholder-image product-8"></div>
+          <div class="product-actions">
+            <button class="quick-view" data-product="canvas-sneaker">Quick View</button>
+            <button class="add-to-cart" data-product="canvas-sneaker">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3><a href="/products/canvas-sneaker">Canvas Sneaker</a></h3>
+          <p class="product-brand">Converse</p>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(187)</span>
+          </div>
+          <div class="product-price">
+            <span class="price">$65.99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-cta">
+      <a href="/collections/all" class="btn btn-primary">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<section class="promo-banners">
+  <div class="container">
+    <div class="banners-grid">
+      <div class="banner-card">
+        <div class="banner-content">
+          <h3>Free Shipping</h3>
+          <p>On orders over $75</p>
+        </div>
+        <div class="banner-icon">🚚</div>
+      </div>
+      
+      <div class="banner-card">
+        <div class="banner-content">
+          <h3>Easy Returns</h3>
+          <p>30-day return policy</p>
+        </div>
+        <div class="banner-icon">↩️</div>
+      </div>
+      
+      <div class="banner-card">
+        <div class="banner-content">
+          <h3>Quality Guarantee</h3>
+          <p>Premium materials only</p>
+        </div>
+        <div class="banner-icon">✨</div>
+      </div>
+      
+      <div class="banner-card">
+        <div class="banner-content">
+          <h3>Customer Support</h3>
+          <p>24/7 assistance</p>
+        </div>
+        <div class="banner-icon">💬</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-signup">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Stay In Step</h2>
+      <p>Subscribe to our newsletter for exclusive offers, new arrivals, and style tips.</p>
+      <form class="newsletter-form-large">
+        <div class="form-group">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+        <p class="form-disclaimer">By subscribing, you agree to our Privacy Policy and Terms of Service.</p>
+      </form>
+    </div>
+  </div>
+</section>
