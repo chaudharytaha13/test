@@ -1,0 +1,409 @@
+<div class="product-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/collections/{{ collection.handle }}">{{ collection.title }}</a></li>
+        <li class="current">{{ product.title | default: "Nike Air Max Pro" }}</li>
+      </ol>
+    </nav>
+    
+    <div class="product-main">
+      <div class="product-gallery">
+        <div class="product-images">
+          <div class="main-image">
+            <div class="placeholder-image product-main-1"></div>
+            <button class="zoom-button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <path d="M11 8l3 3-3 3"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="thumbnail-images">
+            <button class="thumbnail active">
+              <div class="placeholder-image product-main-1"></div>
+            </button>
+            <button class="thumbnail">
+              <div class="placeholder-image product-main-2"></div>
+            </button>
+            <button class="thumbnail">
+              <div class="placeholder-image product-main-3"></div>
+            </button>
+            <button class="thumbnail">
+              <div class="placeholder-image product-main-4"></div>
+            </button>
+          </div>
+        </div>
+        
+        <div class="product-video">
+          <button class="video-thumbnail">
+            <div class="video-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21"></polygon>
+              </svg>
+            </div>
+            <span>Watch Product Video</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="product-details">
+        <div class="product-header">
+          <h1 class="product-title">{{ product.title | default: "Nike Air Max Pro" }}</h1>
+          <div class="product-vendor">{{ product.vendor | default: "Nike" }}</div>
+          
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-text">4.8 out of 5</span>
+            <a href="#reviews" class="reviews-link">(124 reviews)</a>
+          </div>
+          
+          <div class="product-price">
+            <span class="current-price">${{ product.price | default: "129.99" | money }}</span>
+            <span class="compare-price">${{ product.compare_at_price | default: "149.99" | money }}</span>
+            <span class="save-amount">Save $20</span>
+          </div>
+        </div>
+        
+        <div class="product-form">
+          <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form-cart">
+            
+            <div class="product-variants">
+              <div class="variant-option">
+                <label class="variant-label">Size:</label>
+                <div class="size-selector">
+                  <select name="id" class="variant-select" required>
+                    <option value="">Select Size</option>
+                    <option value="7">7</option>
+                    <option value="7.5">7.5</option>
+                    <option value="8">8</option>
+                    <option value="8.5">8.5</option>
+                    <option value="9">9</option>
+                    <option value="9.5">9.5</option>
+                    <option value="10">10</option>
+                    <option value="10.5">10.5</option>
+                    <option value="11">11</option>
+                    <option value="11.5">11.5</option>
+                    <option value="12">12</option>
+                  </select>
+                  <a href="#size-guide" class="size-guide-link">Size Guide</a>
+                </div>
+              </div>
+              
+              <div class="variant-option">
+                <label class="variant-label">Color:</label>
+                <div class="color-selector">
+                  <div class="color-options">
+                    <input type="radio" name="color" value="black" id="color-black" checked>
+                    <label for="color-black" class="color-option" style="background-color: #000" data-color="Black"></label>
+                    
+                    <input type="radio" name="color" value="white" id="color-white">
+                    <label for="color-white" class="color-option" style="background-color: #fff; border: 1px solid #ddd" data-color="White"></label>
+                    
+                    <input type="radio" name="color" value="navy" id="color-navy">
+                    <label for="color-navy" class="color-option" style="background-color: #001f3f" data-color="Navy"></label>
+                    
+                    <input type="radio" name="color" value="red" id="color-red">
+                    <label for="color-red" class="color-option" style="background-color: #dc3545" data-color="Red"></label>
+                  </div>
+                  <span class="selected-color">Black</span>
+                </div>
+              </div>
+              
+              <div class="variant-option">
+                <label class="variant-label">Quantity:</label>
+                <div class="quantity-selector">
+                  <button type="button" class="quantity-btn minus">−</button>
+                  <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                  <button type="button" class="quantity-btn plus">+</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="product-actions">
+              <button type="submit" class="btn btn-primary add-to-cart-btn">
+                <span class="btn-text">Add to Cart</span>
+                <span class="btn-loading" style="display: none;">Adding...</span>
+              </button>
+              
+              <button type="button" class="btn btn-secondary buy-now-btn">
+                Buy Now
+              </button>
+              
+              <button type="button" class="wishlist-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                Add to Wishlist
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="product-info-tabs">
+          <div class="tab-headers">
+            <button class="tab-header active" data-tab="description">Description</button>
+            <button class="tab-header" data-tab="features">Features</button>
+            <button class="tab-header" data-tab="shipping">Shipping</button>
+            <button class="tab-header" data-tab="care">Care</button>
+          </div>
+          
+          <div class="tab-content">
+            <div class="tab-pane active" id="description">
+              <div class="product-description">
+                <p>Experience ultimate comfort and style with the Nike Air Max Pro. This premium sneaker combines cutting-edge technology with timeless design, making it perfect for both athletic performance and everyday wear.</p>
+                
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>Max Air cushioning for superior comfort</li>
+                  <li>Breathable mesh upper for ventilation</li>
+                  <li>Durable rubber outsole with excellent traction</li>
+                  <li>Lightweight construction for all-day wear</li>
+                  <li>Iconic Nike swoosh design</li>
+                </ul>
+                
+                <p>Whether you're hitting the gym, going for a run, or simply walking around the city, the Nike Air Max Pro delivers the performance and style you need.</p>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="features">
+              <div class="product-features">
+                <div class="feature-list">
+                  <div class="feature-item">
+                    <h5>Air Max Technology</h5>
+                    <p>Revolutionary cushioning that provides exceptional comfort and impact protection.</p>
+                  </div>
+                  <div class="feature-item">
+                    <h5>Breathable Design</h5>
+                    <p>Engineered mesh upper allows for optimal airflow to keep feet cool and dry.</p>
+                  </div>
+                  <div class="feature-item">
+                    <h5>Premium Materials</h5>
+                    <p>High-quality synthetic leather and textile materials ensure durability and style.</p>
+                  </div>
+                  <div class="feature-item">
+                    <h5>Versatile Style</h5>
+                    <p>Classic design that pairs perfectly with both athletic and casual outfits.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="shipping">
+              <div class="shipping-info">
+                <div class="shipping-options">
+                  <div class="shipping-option">
+                    <h5>🚚 Free Standard Shipping</h5>
+                    <p>5-7 business days • Orders over $75</p>
+                  </div>
+                  <div class="shipping-option">
+                    <h5>⚡ Express Shipping</h5>
+                    <p>2-3 business days • $9.99</p>
+                  </div>
+                  <div class="shipping-option">
+                    <h5>🚀 Next Day Delivery</h5>
+                    <p>1 business day • $19.99 (select areas)</p>
+                  </div>
+                </div>
+                
+                <div class="return-policy">
+                  <h5>Returns & Exchanges</h5>
+                  <p>30-day return policy. Items must be in original condition with tags attached.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="care">
+              <div class="care-instructions">
+                <h5>Care Instructions</h5>
+                <ul>
+                  <li>Clean with a damp cloth and mild soap</li>
+                  <li>Remove laces before cleaning</li>
+                  <li>Air dry away from direct sunlight</li>
+                  <li>Use shoe trees to maintain shape</li>
+                  <li>Store in a cool, dry place</li>
+                  <li>Avoid harsh chemicals or bleach</li>
+                </ul>
+                
+                <div class="care-tips">
+                  <h5>Pro Tips</h5>
+                  <p>For best results, rotate between multiple pairs of shoes to allow proper drying between wears. Use a protective spray to guard against stains and water damage.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-guarantees">
+          <div class="guarantee-item">
+            <span class="guarantee-icon">✨</span>
+            <div class="guarantee-text">
+              <strong>Quality Guarantee</strong>
+              <span>Premium materials and craftsmanship</span>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">🔒</span>
+            <div class="guarantee-text">
+              <strong>Secure Checkout</strong>
+              <span>SSL encrypted payment processing</span>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">↩️</span>
+            <div class="guarantee-text">
+              <strong>Easy Returns</strong>
+              <span>30-day hassle-free returns</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="product-reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <h2>Customer Reviews</h2>
+      <div class="reviews-summary">
+        <div class="average-rating">
+          <span class="rating-number">4.8</span>
+          <div class="stars">★★★★★</div>
+          <span class="total-reviews">Based on 124 reviews</span>
+        </div>
+        <button class="btn btn-outline write-review-btn">Write a Review</button>
+      </div>
+    </div>
+    
+    <div class="reviews-breakdown">
+      <div class="rating-bars">
+        <div class="rating-bar">
+          <span class="rating-label">5 stars</span>
+          <div class="bar"><div class="fill" style="width: 80%"></div></div>
+          <span class="rating-count">99</span>
+        </div>
+        <div class="rating-bar">
+          <span class="rating-label">4 stars</span>
+          <div class="bar"><div class="fill" style="width: 15%"></div></div>
+          <span class="rating-count">19</span>
+        </div>
+        <div class="rating-bar">
+          <span class="rating-label">3 stars</span>
+          <div class="bar"><div class="fill" style="width: 3%"></div></div>
+          <span class="rating-count">4</span>
+        </div>
+        <div class="rating-bar">
+          <span class="rating-label">2 stars</span>
+          <div class="bar"><div class="fill" style="width: 1%"></div></div>
+          <span class="rating-count">1</span>
+        </div>
+        <div class="rating-bar">
+          <span class="rating-label">1 star</span>
+          <div class="bar"><div class="fill" style="width: 1%"></div></div>
+          <span class="rating-count">1</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reviews-list">
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <strong class="reviewer-name">Sarah M.</strong>
+            <div class="review-rating">★★★★★</div>
+          </div>
+          <span class="review-date">2 weeks ago</span>
+        </div>
+        <div class="review-content">
+          <h4 class="review-title">Absolutely love these shoes!</h4>
+          <p>The comfort level is incredible. I wear them all day at work and my feet never hurt. The style is perfect for both casual and semi-formal occasions. Highly recommend!</p>
+        </div>
+        <div class="review-actions">
+          <button class="helpful-btn">Helpful (12)</button>
+        </div>
+      </div>
+      
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <strong class="reviewer-name">Mike R.</strong>
+            <div class="review-rating">★★★★★</div>
+          </div>
+          <span class="review-date">1 month ago</span>
+        </div>
+        <div class="review-content">
+          <h4 class="review-title">Great quality and fit</h4>
+          <p>Excellent build quality and the sizing is accurate. The Air Max cushioning really makes a difference during long walks. Fast shipping too!</p>
+        </div>
+        <div class="review-actions">
+          <button class="helpful-btn">Helpful (8)</button>
+        </div>
+      </div>
+      
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <strong class="reviewer-name">Jessica L.</strong>
+            <div class="review-rating">★★★★☆</div>
+          </div>
+          <span class="review-date">1 month ago</span>
+        </div>
+        <div class="review-content">
+          <h4 class="review-title">Stylish and comfortable</h4>
+          <p>Love the look and feel of these sneakers. Only wish they came in more color options. Overall very satisfied with the purchase.</p>
+        </div>
+        <div class="review-actions">
+          <button class="helpful-btn">Helpful (5)</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reviews-pagination">
+      <button class="btn btn-outline load-more-reviews">Load More Reviews</button>
+    </div>
+  </div>
+</section>
+
+<section class="related-products">
+  <div class="container">
+    <h2 class="section-title">You May Also Like</h2>
+    <div class="products-grid">
+      <!-- Related products will be similar to the homepage products -->
+      {% for i in (1..4) %}
+        <div class="product-card">
+          <div class="product-image">
+            <div class="placeholder-image product-{{ i | plus: 2 }}"></div>
+            <div class="product-actions">
+              <button class="quick-view" data-product="related-{{ i }}">Quick View</button>
+              <button class="add-to-cart" data-product="related-{{ i }}">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3><a href="/products/related-product-{{ i }}">Related Product {{ i }}</a></h3>
+            <p class="product-brand">Brand Name</p>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-count">({{ 50 | plus: i | times: 2 }})</span>
+            </div>
+            <div class="product-price">
+              <span class="price">${{ 99 | plus: i | times: 20 }}.99</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="recently-viewed">
+  <div class="container">
+    <h2 class="section-title">Recently Viewed</h2>
+    <div class="recently-viewed-products">
+      <!-- Recently viewed products will be populated by JavaScript -->
+    </div>
+  </div>
+</section>
